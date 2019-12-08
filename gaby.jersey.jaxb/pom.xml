@@ -5,7 +5,7 @@
 	<artifactId>gaby.jersey.jaxb</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<properties>
-		<jetty.version>9.1.4.v20140401</jetty.version>
+		<jetty.version>9.4.24.v20191120</jetty.version>
   	</properties>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
