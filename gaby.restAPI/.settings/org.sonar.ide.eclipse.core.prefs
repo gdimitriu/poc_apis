@@ -1,0 +1,5 @@
+eclipse.preferences.version=1
+extraProperties=
+projectKey=com.axway.integrator\:com.axway.integrator.restAPI
+serverUrl=http\://vmsonarlnx64a.lab.ancy.axway.int\:9000
+version=2
