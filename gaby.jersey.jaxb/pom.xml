@@ -5,7 +5,7 @@
 	<artifactId>gaby.jersey.jaxb</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<properties>
-		<jetty.version>9.1.4.v20140401</jetty.version>
+		<jetty.version>9.3.24.v20180605</jetty.version>
   	</properties>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
@@ -76,19 +76,19 @@
 	<dependency>
 		<groupId>org.eclipse.jetty</groupId>
 		<artifactId>jetty-server</artifactId>
-		<version>${jetty.version}</version>
+		<version>[${jetty.version},)</version>
 	</dependency>
 	
 	<dependency>
 		<groupId>org.eclipse.jetty</groupId>
 		<artifactId>jetty-servlet</artifactId>
-		<version>${jetty.version}</version>
+		<version>[${jetty.version},)</version>
 	</dependency>
 
 	<dependency>
 		<groupId>org.eclipse.jetty</groupId>
 		<artifactId>jetty-http</artifactId>
-		<version>${jetty.version}</version>
+		<version>[${jetty.version},)</version>
 	</dependency>
 	
  	<dependency>
