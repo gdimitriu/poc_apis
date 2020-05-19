@@ -1,12 +1,6 @@
 package poc_cxf.tests;
 
 
-import java.util.Map;
-
-import javax.xml.namespace.QName;
-import javax.xml.ws.Service;
-import javax.xml.ws.soap.SOAPBinding;
-
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -14,6 +8,12 @@ import poc_cxf.EndPointImpl;
 import poc_cxf.IEndPoint;
 import poc_cxf.model.IStudent;
 import poc_cxf.model.StudentImpl;
+
+import javax.xml.namespace.QName;
+import javax.xml.ws.Endpoint;
+import javax.xml.ws.Service;
+import javax.xml.ws.soap.SOAPBinding;
+import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
 
@@ -29,6 +29,9 @@ public class StudentTest {
     @BeforeClass
     public static void init()
     {
+        EndPointImpl implementor = new EndPointImpl();
+        String address = "http://localhost:8080/IEndPoint";
+        Endpoint.publish(address,implementor);
         service = Service.create(SERVICE_NAME);
         final String endpointAddress = "http://localhost:8080/IEndPoint";
         service.addPort(PORT_NAME, SOAPBinding.SOAP11HTTP_BINDING, endpointAddress);
