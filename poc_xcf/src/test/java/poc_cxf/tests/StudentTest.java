@@ -23,8 +23,8 @@ public class StudentTest {
     private static QName PORT_NAME = new QName("http://poc_cxf/", "IEndPointPort");
 
     private static Service service;
-    private IEndPoint baeldungProxy;
-    private EndPointImpl baeldungImpl;
+    private IEndPoint iEndPointProxy;
+    private EndPointImpl endPointImpl;
 
     @BeforeClass
     public static void init()
@@ -36,34 +36,34 @@ public class StudentTest {
 
     @Before
     public void reinstantiateBaeldungInstances() {
-        baeldungImpl = new EndPointImpl();
-        baeldungProxy = service.getPort(PORT_NAME, IEndPoint.class);
+        endPointImpl = new EndPointImpl();
+        iEndPointProxy = service.getPort(PORT_NAME, IEndPoint.class);
     }
 
     @Test
     public void whenUsingHelloMethod_thenCorrect() {
-        final String endpointResponse = baeldungProxy.hello("TestEndPoint");
-        final String localResponse = baeldungImpl.hello("TestEndPoint");
+        final String endpointResponse = iEndPointProxy.hello("TestEndPoint");
+        final String localResponse = endPointImpl.hello("TestEndPoint");
         assertEquals(localResponse, endpointResponse);
     }
 
     @Test
     public void whenUsingHelloStudentMethod_thenCorrect() {
         final IStudent student = new StudentImpl("John Doe");
-        final String endpointResponse = baeldungProxy.helloStudent(student);
-        final String localResponse = baeldungImpl.helloStudent(student);
+        final String endpointResponse = iEndPointProxy.helloStudent(student);
+        final String localResponse = endPointImpl.helloStudent(student);
         assertEquals(localResponse, endpointResponse);
     }
 
     @Test
     public void usingGetStudentsMethod_thenCorrect() {
         final IStudent student1 = new StudentImpl("Adam");
-        baeldungProxy.helloStudent(student1);
+        iEndPointProxy.helloStudent(student1);
 
         final IStudent student2 = new StudentImpl("Eve");
-        baeldungProxy.helloStudent(student2);
+        iEndPointProxy.helloStudent(student2);
 
-        final Map<Integer, IStudent> students = baeldungProxy.getStudents();
+        final Map<Integer, IStudent> students = iEndPointProxy.getStudents();
         assertEquals("Adam", students.get(1).getName());
         assertEquals("Eve", students.get(2).getName());
     }
