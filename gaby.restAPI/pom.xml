@@ -7,7 +7,7 @@
   <description>REST API POC for Integrator</description>
   <packaging>jar</packaging>
   <properties>
-	<jetty.version>9.3.27.v20190418</jetty.version>
+	<jetty.version>9.4.28.v20200408/jetty.version>
 	<jersey.version>2.7</jersey.version>
 	<jackson.version>2.3.1</jackson.version>
   </properties>
