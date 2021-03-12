@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Category>
+    <categoryName>Microsoft NET</categoryName>
+    <categoryId>002</categoryId>
+    <books><author>NaveenBalani</author>
+        <bookISBNnumber>ISB003</bookISBNnumber>
+        <bookId>003</bookId>
+        <bookName>Spring NET Series</bookName>
+    </books>
+</Category>
