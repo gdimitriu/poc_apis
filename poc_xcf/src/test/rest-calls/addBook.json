@@ -1,0 +1,11 @@
+{
+    "books": [ {
+            "author": "Naveen Balani",
+            "bookISBNNumber": "ISB003",
+            "bookId": "004",
+            "bookName": "Spring NET Series"
+        }
+    ],
+    "categoryName": "Microsoft NET",
+    "categoryId": "003"
+}

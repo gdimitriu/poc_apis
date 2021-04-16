@@ -1,5 +1,6 @@
 package demo.restful;
 
+import com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider;
 import org.apache.cxf.jaxrs.JAXRSServerFactoryBean;
 
 import java.io.BufferedReader;
@@ -10,6 +11,7 @@ public class CategoryServiceServer {
     public static void main(String[] args) {
         CategoryService categoryService = new CategoryService();
         JAXRSServerFactoryBean restServer = new JAXRSServerFactoryBean();
+        restServer.setProvider(new JacksonJaxbJsonProvider());
         restServer.setResourceClasses(Category.class);
         restServer.setServiceBean(categoryService);
         restServer.setAddress("http://localhost:9000/");
