@@ -8,7 +8,7 @@
     <artifactId>poc_cxf</artifactId>
     <version>1.0-SNAPSHOT</version>
     <properties>
-            <CXF.version>3.5.8</CXF.version>
+            <CXF.version>3.5.10</CXF.version>
     </properties>
     <build>
         <plugins>
