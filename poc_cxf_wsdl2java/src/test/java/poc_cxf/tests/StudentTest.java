@@ -10,9 +10,9 @@ import poc_cxf.StudentMap;
 import poc_cxf.EndPointImplPortImpl;
 
 import javax.xml.namespace.QName;
-import javax.xml.ws.Endpoint;
-import javax.xml.ws.Service;
-import javax.xml.ws.soap.SOAPBinding;
+import jakarta.xml.ws.Endpoint;
+import jakarta.xml.ws.Service;
+import jakarta.xml.ws.soap.SOAPBinding;
 
 import static org.junit.Assert.assertEquals;
 

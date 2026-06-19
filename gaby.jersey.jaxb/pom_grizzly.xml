@@ -5,11 +5,12 @@
 	<artifactId>gaby.jersey.jaxb</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<properties>
-		<jetty.version>12.0.15</jetty.version>
+		<grizzly.version>5.0.2</grizzly.version>
 		<jersey.version>3.1.9</jersey.version>
 		<jackson.version>2.17.2</jackson.version>
 	</properties>
 	<build>
+		<sourceDirectory>src</sourceDirectory>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -17,12 +18,14 @@
 				<configuration>
 					<release>21</release>
 					<excludes>
-						<!-- Grizzly server not available in this pom -->
-						<exclude>gaby/jersey/jaxb/server/ServerGrizzly.java</exclude>
+						<!-- Jetty server not available in this pom -->
+						<exclude>gaby/jersey/jaxb/server/ServerJetty.java</exclude>
+						<!-- src/test/java is a subdir of src/ so must be excluded from main compile -->
+						<exclude>test/**</exclude>
 					</excludes>
-					<!-- Grizzly test not available in this pom -->
+					<!-- Jetty test not available in this pom -->
 					<testExcludes>
-						<testExclude>**/TodoResourceGrizzlyTest.java</testExclude>
+						<testExclude>**/TodoResourceJettyTest.java</testExclude>
 					</testExcludes>
 				</configuration>
 			</plugin>
@@ -32,17 +35,25 @@
 				<version>3.2.5</version>
 				<configuration>
 					<excludes>
-						<exclude>**/TodoResourceGrizzlyTest.java</exclude>
+						<exclude>**/TodoResourceJettyTest.java</exclude>
 					</excludes>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
 	<dependencies>
+		<!-- Jersey Grizzly2 HTTP container (brings in jersey-server transitively) -->
 		<dependency>
 			<groupId>org.glassfish.jersey.containers</groupId>
-			<artifactId>jersey-container-servlet</artifactId>
+			<artifactId>jersey-container-grizzly2-http</artifactId>
 			<version>${jersey.version}</version>
+		</dependency>
+
+		<!-- Override transitive Grizzly to 5.0.2 -->
+		<dependency>
+			<groupId>org.glassfish.grizzly</groupId>
+			<artifactId>grizzly-http-server</artifactId>
+			<version>${grizzly.version}</version>
 		</dependency>
 
 		<dependency>
@@ -113,18 +124,6 @@
 			<groupId>com.fasterxml.jackson.datatype</groupId>
 			<artifactId>jackson-datatype-joda</artifactId>
 			<version>${jackson.version}</version>
-		</dependency>
-
-		<!-- Jetty 12 (EE10) -->
-		<dependency>
-			<groupId>org.eclipse.jetty</groupId>
-			<artifactId>jetty-server</artifactId>
-			<version>${jetty.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.eclipse.jetty.ee10</groupId>
-			<artifactId>jetty-ee10-servlet</artifactId>
-			<version>${jetty.version}</version>
 		</dependency>
 
 		<dependency>

@@ -1,6 +1,6 @@
 package gaby.jersey.jaxb.model;
 
-import javax.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 // JAX-RS supports an automatic mapping from JAXB annotated class to XML and JSON

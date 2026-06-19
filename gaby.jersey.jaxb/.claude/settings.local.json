@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path C:\\\\ai\\\\poc_apis\\\\gaby.jersey.jaxb -Recurse -Force)",
+      "Bash(Select-Object FullName)",
+      "Bash(xargs wc -l)"
+    ]
+  }
+}

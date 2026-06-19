@@ -2,22 +2,20 @@ package gaby.jersey.jaxb.client;
 
 import java.net.URI;
 
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.UriBuilder;
+import jakarta.ws.rs.client.Client;
+import jakarta.ws.rs.client.ClientBuilder;
+import jakarta.ws.rs.client.Entity;
+import jakarta.ws.rs.client.WebTarget;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.UriBuilder;
 
-import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.media.multipart.FormDataMultiPart;
 import org.glassfish.jersey.media.multipart.MultiPartFeature;
-import org.glassfish.jersey.media.multipart.internal.MultiPartWriter;
 
 
 public class Test {
   public static void main(String[] args) {
-	Client client = ClientBuilder.newClient().register(MultiPartFeature.class).register(MultiPartWriter.class);
+	Client client = ClientBuilder.newClient().register(MultiPartFeature.class);
 	WebTarget target = client.target(getBaseURI());
 	FormDataMultiPart multipartEntity = new FormDataMultiPart()
     .field("Name","ala bala name", MediaType.TEXT_PLAIN_TYPE)
@@ -36,4 +34,4 @@ public class Test {
     return UriBuilder.fromUri("{arg}").build(new String[]{"http://localhost:8090/"},false);
   }
 
-} 
+}
